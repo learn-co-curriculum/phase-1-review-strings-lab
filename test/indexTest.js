@@ -1,33 +1,58 @@
 const expect = chai.expect;
 
-describe('objects', function() {
-  describe('Scooter constructor', function(){
-    it("should create a new scooter with three properties", function(){
-      let samson = new Scooter(2015, "red", "swoosh");
-      expect(samson).to.be.an.instanceof(Scooter);
-      expect(samson.year).to.equal(2015);
-      expect(samson.color).to.equal("red");
-      expect(samson.model).to.equal("swoosh");
-    });
-
-  });
-
-  describe('Driver constructor', function(){
-    it("should create a new driver with three properties", function(){
-      let allison = new Driver("Allison", "16 years", "2 years");
-      expect(allison).to.be.an.instanceof(Driver);
-      expect(allison.name).to.equal("Allison");
-      expect(allison.age).to.equal("16 years");
-      expect(allison.experience).to.equal("2 years");
+describe('index.js', () => {
+  describe('currentUser', () => {
+    it('is defined', () => {
+      expect(currentUser, "The 'currentUser' variable must contain a string").to.be.a('string');
+      expect(currentUser, "You need to modify the value of the 'currentUser' variable").to.not.be.empty;
     });
   });
 
-  describe('PickupLocation constructor', function(){
-    it("should create a new PickupLocation with three properties", function(){
-      let poshHotel = new PickupLocation("123 Broadway", "New York City");
-      expect(poshHotel).to.be.an.instanceof(PickupLocation);
-      expect(poshHotel.address).to.equal("123 Broadway");
-      expect(poshHotel.city).to.equal("New York City");
+  describe('welcomeMessage', () => {
+    it('contains "Welcome to Flatbook, "', () => {
+      expect(welcomeMessage).to.have.string('Welcome to Flatbook, ');
+    });
+
+    it("contains the value of the 'currentUser' variable", () => {
+      expect(welcomeMessage).to.have.string(currentUser);
+    });
+
+    it('ends with an exclamation point!', () => {
+      expect(welcomeMessage.substr(-1)).to.eq('!');
+    });
+  });
+
+  describe('excitedWelcomeMessage', () => {
+    it('contains "WELCOME TO FLATBOOK, "', () => {
+      expect(excitedWelcomeMessage).to.have.string('WELCOME TO FLATBOOK, ');
+    });
+
+    it("contains the value of the 'currentUser' variable", () => {
+      const upperCaseCurrentUser = currentUser.toUpperCase();
+
+      expect(excitedWelcomeMessage).to.have.string(upperCaseCurrentUser);
+    });
+
+    it('ends with an exclamation point', () => {
+      expect(excitedWelcomeMessage.substr(-1)).to.eq('!');
+    });
+  });
+
+  describe('shortGreeting', () => {
+    it(`contains "Welcome, "`, () => {
+      expect(shortGreeting).to.have.string('Welcome, ');
+    });
+
+    it("contains the first initial of the name stored in the 'currentUser' variable", () => {
+      const firstInitial = currentUser[0];
+      const restOfName = currentUser.slice(1);
+
+      expect(shortGreeting).to.have.string(firstInitial);
+      expect(shortGreeting).to.not.have.string(restOfName);
+    });
+
+    it('ends with an exclamation point', () => {
+      expect(shortGreeting.substr(-1)).to.eq('!');
     });
   });
 });
