@@ -16,7 +16,11 @@ In this code-along, we're going to take a deep dive on strings in JavaScript. We
 ## Introduction
 You've just been onboarded to the dev team working on Flatbook, the world's premier Flatiron School-based social network. At the moment, the view that our users see upon logging in is pretty generic. We'd like to improve the user experience by adding some custom greeting capabilities.
 
-![Homer Simpson, professional greeter](https://user-images.githubusercontent.com/17556281/28728306-1e43bd3e-7396-11e7-983b-e89aafb7c6b0.gif)
+<picture>
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/halting_test_server.webp" type="image/webp">
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/halting_test_server.gif" type="image/gif">
+  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/homer_simpson_sprawl_mart_greeter.gif" alt="Homer Simpson, professional greeter">
+</picture>
 
 ***NOTE***: For this code-along, the only file you need to modify is `index.js`. Save the file every time you make a change to it, and the test suite in your browser will automatically re-run itself and push the results to Learn. When all of the tests are passing at the end of the code-along, the `Run Local Tests` light on the Learn.co lesson page will turn green.
 
@@ -26,16 +30,19 @@ To start off, let's run the test suite with the `learn` command. If you're codin
 Once you have `index.js` open in the IDE (or your local text editor) and the correct page open in your browser, you're ready to go.
 
 Before we've written any code, the test suite in the browser looks like a massacre:
-![All tests failing](https://user-images.githubusercontent.com/17556281/28757890-a165b026-755a-11e7-9004-2e0a8f279d47.png)
+
+![All tests failing](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/all_tests_failing.png)
 
 Ouch, our code is currently failing all of the tests. Let's get to work!
 
 Right off the bat, let's [open the browser's JavaScript console][open JS console] so that we can play around with our code as we modify `index.js`:
-![JavaScript console open](https://user-images.githubusercontent.com/17556281/28757889-a1653b14-755a-11e7-83c0-c17c1a15bb01.png)
+
+![JavaScript console open](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/javascript_console_open.png)
 
 ### `currentUser`
 The first test is telling us that `currentUser` is not defined. Let's verify that in the console:
-![Checking the value of currentUser in the console](https://user-images.githubusercontent.com/17556281/28757885-a1640708-755a-11e7-840e-29580dc76b55.png)
+
+![Checking the value of currentUser in the console](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/checking_values_in_console.png)
 
 No dice! So now we know that we need to declare a new variable named `currentUser`. Let's flip over to `index.js` and write the following code:
 ```js
@@ -45,11 +52,16 @@ const currentUser = 'Grace Hopper';
 ***NOTE***: You don't need to write `'Grace Hopper'` — you can use your own name, your pet's name, your favorite programmer's name — whatever you'd like.
 
 If we save `index.js` after writing that code, the test suite will automatically re-run itself in the browser, and we should now see one passing test:
-![One passing test](https://user-images.githubusercontent.com/17556281/28757888-a1650ed2-755a-11e7-9cbf-c66dc3dd1dd5.png)
+
+![One passing test](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/one_passing_test.png)
 
 Congrats! Our first passing JavaScript test!
 
-![High five yourself](https://user-images.githubusercontent.com/17556281/28731024-4fd1b310-73a0-11e7-9e75-71e604fe5817.gif)
+<picture>
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/high_five_yourself.webp" type="image/webp">
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/high_five_yourself.gif" type="image/gif">
+  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/high_five_yourself.gif" alt="High five yourself!">
+</picture>
 
 ### `welcomeMessage`
 The next failing test is similarly helpful, telling us exactly what we have to fix: `welcomeMessage contains "Welcome to Flatbook, "`.
@@ -62,7 +74,7 @@ const welcomeMessage = 'Welcome to Flatbook, ';
 ```
 
 When we save `index.js`, we should see a second passing test:
-![Two passing tests](https://user-images.githubusercontent.com/17556281/28757886-a163fed4-755a-11e7-8f69-a9f03598ebc6.png)
+![Two passing tests](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/two_passing_tests.png)
 
 The third test tells us that `welcomeMessage` should contain the value stored in `currentUser`. Hm... this seems like it might contradict the second test a bit, but let's try it out. Let's erase `'Welcome to Flatbook, '` and set `welcomeMessage` equal to `currentUser` instead:
 ```js
@@ -271,7 +283,8 @@ For the added flexibility, we're going to use `.slice()`, but feel free to explo
 
 #### `.slice()`
 Let's take a look at the documentation for [`.slice()`][slice]:
-[![String.prototype.slice() documentation on MDN](https://user-images.githubusercontent.com/17556281/28755724-28e756f2-752f-11e7-926e-d8890b085c2c.png)][slice]
+
+[![String.prototype.slice() documentation on MDN](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/MDN_string_slice_documentation.png)][slice]
 
 >The **slice()** method extracts a section of a string and returns it as a new string.
 
@@ -321,20 +334,24 @@ const currentUser = 'Grace Hopper';
 const shortGreeting = `Welcome, ${currentUser.slice(0, 1)}!`;
 ```
 
-![All tests passing](https://user-images.githubusercontent.com/17556281/28757887-a16457e4-755a-11e7-8e69-c258c3080b78.png)
+![All tests passing](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/all_tests_passing.png)
 
 Crushing it!
 
 When all of the tests are passing, the `Run Local Tests` light on the Learn.co lesson page should turn green, and you can then close the browser tab that contains the test suite. Flip back to the Learn IDE terminal (or to your local terminal if you're not working in the IDE), and press the `Control` and `C` keys at the same time to halt the test server:
 
-<TODO: GIF of halting test server>
+<picture>
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/halting_test_server.webp" type="image/webp">
+  <source srcset="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/halting_test_server.gif" type="image/gif">
+  <img src="https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/halting_test_server.gif" alt="Halting the test server">
+</picture>
 
 We're ready to submit our passing code and move on to the next lesson. Either [manually initiate a pull request on GitHub][manual PR instructions] or type `learn submit` in your terminal, which initiates a PR on your behalf.
 
 Great work!
 
 ## Resources
-- [SE – How to open the JavaScript console][open JS console]
+- [StackExchange – How to open the JavaScript console][open JS console]
 - [MDN — Template literals][template literals]
 - [DRY — Don't Repeat Yourself][DRY]
 - [MDN — String — `.length`][length]
