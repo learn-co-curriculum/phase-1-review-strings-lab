@@ -1,4 +1,4 @@
-# JavaScript Strings Code-along
+# Strings Code-along
 
 ## Overview
 In this code-along, we're going to take a deep dive on strings in JavaScript. We're also going to familiarize ourselves with the structure and flow of the JavaScript labs in the Learn.co curriculum.
@@ -372,3 +372,5 @@ Great work!
 [charAt]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
 [slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
 [manual PR instructions]: http://help.learn.co/workflow-tips/github/how-to-manually-submit-a-lab
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/js-basics-strings-code-along'>Strings Code-along</a> on Learn.co and start learning to code for free.</p>
