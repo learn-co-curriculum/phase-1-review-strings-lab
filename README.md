@@ -154,7 +154,8 @@ const myBoolean = true;
 //=> "It's true that we can concatenate values of any data type into one long string. We could even concatenate 42 things together if we wanted to. We don't have to convert things like numbers or booleans prior to concatenating them. Even if we concatenate across multiple lines, the return value is still a single, one-line string."
 ```
 
-ES2015 introduced [template literals][template literals], which removed the need for concatenation. You can kiss those `+` operators goodbye:
+ES2015 introduced [template literals][template literals], which removed the need for concatenation. No more `+` operators needed; instead variables are interpolated in by wrapping them in curly braces preceded by a dollar sign: `${yourVariable}`. One other important thing to note: Template literals **must** use backticks in order for variables to be interpreted correctly. Using single or double quotes will cause the dollar sign, curly braces and variable to be interpretted as regular string data.
+
 ```js
 const myString = 'template literal';
 
