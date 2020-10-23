@@ -1,6 +1,7 @@
 # Strings Lab Introduction
 
-## Problem Statement 
+## Problem Statement
+
 In this lab introduction, we're going to take a deep dive into strings in JavaScript by walking you through the process of running tests in the Learn environment, and submitting a lab. We're also going to familiarize ourselves with the structure and flow of the JavaScript labs in the Learn.co curriculum.
 
 For this lab, you've just been onboarded to the dev team working on Flatbook, the world's premier Flatiron School-based social network. At the moment, the view that our users see upon logging in is pretty generic. We'd like to improve the user experience by adding some custom greeting capabilities.
@@ -8,6 +9,7 @@ For this lab, you've just been onboarded to the dev team working on Flatbook, th
 The only file you need to modify is `index.js`. Save the file every time you make a change to it, and the test suite in your browser will automatically re-run itself and push the results to Learn. When all of the tests are passing at the end of the code-along, the `Run Local Tests` light on the Learn.co lesson page will turn green.
 
 ## Objectives
+
 1. Run the test suite for a JavaScript lab on Learn.co
 2. Work through failing tests in a JavaScript test suite
 3. Concatenate strings with the `+` operator
@@ -16,6 +18,7 @@ The only file you need to modify is `index.js`. Save the file every time you mak
 6. Submit a pull request after successfully completing a lab
 
 ## Run the Test Suite for a JavaScript Lab on Learn.co
+
 To start off, let's run the test suite with the `learn` command. If you're coding along in a local environment, a browser window should automatically open when you run the command. If you're in the IDE, follow the instructions that appear after you run the `learn` command.
 
 Once you have `index.js` open in the IDE (or your local text editor) and the correct page open in your browser, you're ready to go.
@@ -31,12 +34,15 @@ Right off the bat, let's [open the browser's JavaScript console][open JS console
 ![JavaScript console open](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/javascript_console_open.png)
 
 ## Work Through Failing Tests in a JavaScript Test Suite
+
 #### `currentUser`
+
 The first test is telling us that `currentUser` is not defined. Let's verify that in the console by typing `currentUser`:
 
 ![Checking the value of currentUser in the console](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/checking_values_in_console.png)
 
 This gives us a `ReferenceError`. In this case, the `ReferenceError` is telling us that `currentUser` is undefined. That lets us know that we need to declare a new variable named `currentUser`. Let's go to `index.js` and write the following code:
+
 ```js
 const currentUser = 'Grace Hopper';
 ```
@@ -49,11 +55,12 @@ If we save `index.js` after writing that code, the test suite will automatically
 
 Congratulations! You've just written your first passing JavaScript test!
 
-
 #### `welcomeMessage`
+
 The next failing test is similarly helpful, telling us exactly what we have to fix: `welcomeMessage contains "Welcome to Flatbook, "`.
 
 Let's return to `index.js` and define our second variable below where we declared `currentUser`:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -64,6 +71,7 @@ When we save `index.js`, we should see a second passing test:
 ![Two passing tests](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/two_passing_tests.png)
 
 The third test tells us that `welcomeMessage` should contain the value stored in `currentUser`. This seems like it might contradict the second test a bit, but let's try it out. Let's erase `'Welcome to Flatbook, '` and set `welcomeMessage` equal to `currentUser` instead:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -73,6 +81,7 @@ const welcomeMessage = currentUser;
 When we save the file and look back at the browser, we still have two passing tests. But now the first and third tests are passing instead of the first and second! That doesn't seem quite right.
 
 It turns out that the tests want `welcomeMessage` to include _both_ `'Welcome to Flatbook, '` and the value stored in `currentUser`. Maybe we can include both of them in a single string?
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -80,14 +89,18 @@ const welcomeMessage = 'Welcome to Flatbook, currentUser';
 ```
 
 After saving the file, we're once again passing the second test, but we're back to failing the third test. The new error message for the third test gives us a hint about what's happening:
+
 ```js
 AssertionError: expected 'Welcome to Flatbook, currentUser' to contain 'Grace Hopper'
 ```
+
 When JavaScript is expecting a variable to contain one thing, and it does not, that is known as an `AssertionError`. The test suite looked at the value stored in `welcomeMessage` and expected to find the string `'Grace Hopper'`, which is the value stored in `currentUser`. Instead, `welcomeMessage` contains the literal string `"currentUser"`. It's important to understand the distinction:
+
 - `currentUser` is a _variable_ that contains a string (`'Grace Hopper'` in our examples).
 - `'currentUser'` is a _string_, ***not a variable***.
 
 The JavaScript engine sees a matching pair of single quotes (`' '`), creates a new string, and assumes that _everything_ in between the matching punctuation marks is part of that string. For example, if we add quotation marks around the first line of code that we wrote, it becomes a simple string consisting of 35 characters:
+
 ```js
 typeof "const currentUser = 'Grace Hopper';";
 //=> "string"
@@ -104,7 +117,9 @@ As demonstrated by the last line in that snippet, because we turned our code int
 Since we want `welcomeMessage` to contain both `'Welcome to Flatbook, '` and the value stored in `currentUser`, we have two options: **concatenation** and **interpolation**.
 
 ## Concatenate Strings with the `+` Operator
+
 String concatenation is a way to take two strings and add one to the other, creating a single, longer string. The easiest way to concatenate strings in JavaScript is with the `+` operator, like so:
+
 ```js
 "High " + "five!";
 //=> "High five!"
@@ -114,6 +129,7 @@ String concatenation is a way to take two strings and add one to the other, crea
 ```
 
 Since our `currentUser` variable contains a string, we can concatenate it to the end of `'Welcome to Flatbook, '` to dynamically create a new string based on whatever value `currentUser` contains at a given moment:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -122,8 +138,10 @@ const welcomeMessage = 'Welcome to Flatbook, ' + currentUser;
 
 If we run the test suite with our updated code, we'll see both the second and third tests passing! However, before we move on, let's talk about interpolation.
 
-## Interpolate Variables and Other JavaScript Expressions Inside Template Literals 
+## Interpolate Variables and Other JavaScript Expressions Inside Template Literals
+
 String interpolation lets us dynamically insert values in the middle of a string. Before ES2015, we could accomplish this with concatenation:
+
 ```js
 const myString = 'concatenat';
 //=> undefined
@@ -158,6 +176,7 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 ```
 
 Let's rewrite our `welcomeMessage` to use a template literal:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -165,6 +184,7 @@ const welcomeMessage = `Welcome to Flatbook, ${currentUser}`;
 ```
 
 The first three tests are still passing, but the fourth wants our `welcomeMessage` to end with an exclamation point. The fix is as simple as adding a `!` as the last character in the template literal:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -174,8 +194,11 @@ const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
 Four tests down, six to go!
 
 ## Read the MDN Documentation on String Methods and Practice Using a Few
+
 #### `excitedWelcomeMessage`
+
 Sometimes we get so excited when someone logs into their Flatbook account that we just want to shout out loud. We *could* copy over most of the code from `welcomeMessage` and then change every character to its uppercase equivalent, but as developers we try not to repeat ourselves. Instead, let's use the `.toUpperCase()` string method:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -189,7 +212,9 @@ All strings in JavaScript have access to the same set of default methods, which 
 If you save `index.js` after adding the code for `excitedWelcomeMessage` and then flip back to the browser-based test suite, we should see the first seven tests passing. Woohoo!
 
 #### `shortGreeting`
+
 The mobile team at Flatbook is busy redesigning the site for smaller devices, and they're a bit concerned about how much real estate the `welcomeMessage` takes up on the screen. They want us to create a shorter version that truncates the `currentUser`'s name into just their first initial:
+
 ```js
 const currentUser = 'Edsger Dijkstra';
 
@@ -202,6 +227,7 @@ shortGreeting;
 ```
 
 Returning to the test suite in the browser, the JavaScript engine is telling us that it can't find `shortGreeting`:
+
 ```js
 shortGreeting
   contains "Welcome, "
@@ -209,6 +235,7 @@ shortGreeting
 ```
 
 Once we define it in `index.js`:
+
 ```js
 ...
 
@@ -216,6 +243,7 @@ const shortGreeting = '';
 ```
 
 we see a new error from the test suite:
+
 ```js
 shortGreeting
   contains "Welcome, "
@@ -223,6 +251,7 @@ shortGreeting
 ```
 
 It expected `shortGreeting` to contain the string `"Welcome, "`, but `shortGreeting` is currently an empty string, `''`. We can fix that now:
+
 ```js
 ...
 
@@ -230,6 +259,7 @@ const shortGreeting = 'Welcome, ';
 ```
 
 Next up is another `AssertionError`, this one checking that `shortGreeting` contains the first letter from `currentUser`:
+
 ```js
 shortGreeting
   contains the first initial of the name stored in the 'currentUser' variable
@@ -237,6 +267,7 @@ shortGreeting
 ```
 
 To get a sense of how specific the tests are, let's start by adding the entirety of `currentUser` to `shortGreeting`:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -248,6 +279,7 @@ const shortGreeting = `Welcome, ${currentUser}`;
 Notice that we changed the single quotes to backticks, which allows us to interpolate with `${ }`.
 
 The new error reads as follows:
+
 ```js
 shortGreeting
   contains the first initial of the name stored in the 'currentUser' variable
@@ -257,6 +289,7 @@ shortGreeting
 The test suite checks that `shortGreeting` contains the first character in `currentUser` (`G` in our example) and that it *doesn't* contain the rest of the string (`race Hopper`).
 
 There are a few different ways we could get just the first character of `currentUser`. The easiest would be to use [bracket notation or the `.charAt()` method][character access] to grab the character at index `0`:
+
 ```js
 'Edsger Dijkstra'[0];
 //=> "E"
@@ -270,13 +303,16 @@ However, it's a good practice to make our code flexible and future-proof it a bi
 For the added flexibility, we're going to use `.slice()`, but you can always explore the [MDN documentation on string methods][string methods] to pick out your own strategy.
 
 #### `.slice()`
+
 Let's take a look at the documentation for [`.slice()`][slice]:
 
 [![String.prototype.slice() documentation on MDN](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/MDN_string_slice_documentation.png)][slice]
 
->The **slice()** method extracts a section of a string and returns it as a new string.
+> The **slice()** method extracts a section of a string and returns it as a new
+> string.
 
 The method takes two arguments, the indexes at which the extraction should begin and before which it should end. When we talk about indexes of a string, we're talking about how to access specific characters at various points within the string. Remember, computers start counting at 0, where humans start counting at 1. Because we start at index `0` instead of `1`, the index of each character in a string is always one less than the character's place in the string. The second character is at index `1`, the fifth at index `4`, the twelfth at index `11`, and so on. The index of the last character is always one less than the [length][length] of the string:
+
 ```js
 'Edsger Dijkstra'.length;
 //=> 15
@@ -289,24 +325,28 @@ The method takes two arguments, the indexes at which the extraction should begin
 ```
 
 If we omit both arguments, `.slice()` will return a full copy of the original string:
+
 ```js
 'Edsger Dijkstra'.slice();
 //=> "Edsger Dijkstra"
 ```
 
 If we provide a single argument, `.slice()` will return a copy from that index to the end of the string. For example, to grab Dijkstra's last name we could start the slice on index `7`:
+
 ```js
 'Edsger Dijkstra'.slice(7);
 //=> "Dijkstra"
 ```
 
 If we wanted the first three characters of Dijkstra's name, we would specify `0` as the first argument, the index at which to start, and `3` as the second argument, the index before which to end:
+
 ```js
 'Edsger Dijkstra'.slice(0, 3);
 //=> "Eds"
 ```
 
 To satisfy our team's current specifications for `shortGreeting`, we need to start our slice at index `0` and end it before index `1`:
+
 ```js
 currentUser.slice(0, 1);
 ```
@@ -314,6 +354,7 @@ currentUser.slice(0, 1);
 Now, when our product team asks us to use the first two characters of `currentUser`, the change is as simple as `currentUser.slice(0, 1)` --> `currentUser.slice(0, 2)`.
 
 Add an exclamation point to the end, and the entire test suite should be passing:
+
 ```js
 const currentUser = 'Grace Hopper';
 
@@ -335,6 +376,7 @@ We're ready to submit our passing code and move on to the next lesson. Type `lea
 Great work!
 
 ## Resources
+
 - [StackExchange – How to open the JavaScript console][open JS console]
 - [MDN — Template literals][template literals]
 - [DRY — Don't Repeat Yourself][DRY]
@@ -357,4 +399,3 @@ Great work!
 [slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
 [manual PR instructions]: http://help.learn.co/workflow-tips/github/how-to-manually-submit-a-lab
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/js-basics-strings-code-along'>Strings Code-along</a> on Learn.co and start learning to code for free.</p>
