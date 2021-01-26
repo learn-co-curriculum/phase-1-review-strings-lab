@@ -1,57 +1,35 @@
 # Strings Lab Introduction
 
-## Problem Statement
+## Learning Goals
 
-In this lab introduction, we're going to take a deep dive into strings in JavaScript by walking you through the process of running tests in the Learn environment, and submitting a lab. We're also going to familiarize ourselves with the structure and flow of the JavaScript labs in the Learn.co curriculum.
+- Concatenate strings with the `+` operator
+- Interpolate variables and other JavaScript expressions inside template literals
+- Read the MDN documentation on string methods and practice using a few
+
+## Introduction
+
+In this lab introduction, we're going to take a deep dive into strings in JavaScript by walking through the process of running tests in the Learn environment. We're also going to familiarize ourselves with the structure and flow of JavaScript labs.
 
 For this lab, you've just been onboarded to the dev team working on Flatbook, the world's premier Flatiron School-based social network. At the moment, the view that our users see upon logging in is pretty generic. We'd like to improve the user experience by adding some custom greeting capabilities.
 
-The only file you need to modify is `index.js`. Save the file every time you make a change to it, and the test suite in your browser will automatically re-run itself and push the results to Learn. When all of the tests are passing at the end of the code-along, the `Run Local Tests` light on the Learn.co lesson page will turn green.
-
-## Objectives
-
-1. Run the test suite for a JavaScript lab on Learn.co
-2. Work through failing tests in a JavaScript test suite
-3. Concatenate strings with the `+` operator
-4. Interpolate variables and other JavaScript expressions inside template literals
-5. Read the MDN documentation on string methods and practice using a few
-6. Submit a pull request after successfully completing a lab
-
-## Run the Test Suite for a JavaScript Lab on Learn.co
-
-To start off, let's run the test suite with the `learn` command. If you're coding along in a local environment, a browser window should automatically open when you run the command. If you're in the IDE, follow the instructions that appear after you run the `learn` command.
-
-Once you have `index.js` open in the IDE (or your local text editor) and the correct page open in your browser, you're ready to go.
-
-Before we've written any code, the test suite in the browser looks pretty intimidating:
-
-![All tests failing](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/all_tests_failing.png)
-
-Our code is currently failing all of the tests, but we expected that because we haven't done anything yet. Let's get to work!
-
-Right off the bat, let's [open the browser's JavaScript console][open JS console] so that we can play around with our code as we modify `index.js`:
-
-![JavaScript console open](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/javascript_console_open.png)
-
 ## Work Through Failing Tests in a JavaScript Test Suite
+
+To start off, let's run the test suite with the `learn` command. Our code is
+currently failing all of the tests, but we expected that because we haven't done
+anything yet. Let's get to work!
 
 #### `currentUser`
 
-The first test is telling us that `currentUser` is not defined. Let's verify that in the console by typing `currentUser`:
-
-![Checking the value of currentUser in the console](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/checking_values_in_console.png)
-
-This gives us a `ReferenceError`. In this case, the `ReferenceError` is telling us that `currentUser` is undefined. That lets us know that we need to declare a new variable named `currentUser`. Let's go to `index.js` and write the following code:
+The first test is telling us that `currentUser` is not defined. Let's go to
+`index.js` and write the following code:
 
 ```js
 const currentUser = 'Grace Hopper';
 ```
 
-***NOTE***: Generally, when Learn asks you to define something, you want to define it exactly as Learn asks you to define it. But in this case, you don't have to write `'Grace Hopper'`, because the important part is the variable name: *currentUser*.  You can use your own name, your pet's name, your favorite programmer's name — whatever you'd like.
+> **Note**: Generally, when the tests ask you to define something, you want to define it exactly as it's indicated in the test. But in this case, you don't have to write `'Grace Hopper'`, because the important part is the variable name: `currentUser`.  You can use your own name, your pet's name, your favorite programmer's name &mdash; whatever you'd like.
 
-If we save `index.js` after writing that code, the test suite will automatically re-run itself in the browser, and we should now see one passing test:
-
-![One passing test](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/one_passing_test.png)
+Rerun the tests and you should see that the first one is  passing.
 
 Congratulations! You've just written your first passing JavaScript test!
 
@@ -67,8 +45,7 @@ const currentUser = 'Grace Hopper';
 const welcomeMessage = 'Welcome to Flatbook, ';
 ```
 
-When we save `index.js`, we should see a second passing test:
-![Two passing tests](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/two_passing_tests.png)
+Rerun the tests; you should see a second passing test.
 
 The third test tells us that `welcomeMessage` should contain the value stored in `currentUser`. This seems like it might contradict the second test a bit, but let's try it out. Let's erase `'Welcome to Flatbook, '` and set `welcomeMessage` equal to `currentUser` instead:
 
@@ -78,7 +55,7 @@ const currentUser = 'Grace Hopper';
 const welcomeMessage = currentUser;
 ```
 
-When we save the file and look back at the browser, we still have two passing tests. But now the first and third tests are passing instead of the first and second! That doesn't seem quite right.
+When we rerun the tests, we still have two passing. But now the first and third tests are passing instead of the first and second! That doesn't seem quite right.
 
 It turns out that the tests want `welcomeMessage` to include _both_ `'Welcome to Flatbook, '` and the value stored in `currentUser`. Maybe we can include both of them in a single string?
 
@@ -88,7 +65,7 @@ const currentUser = 'Grace Hopper';
 const welcomeMessage = 'Welcome to Flatbook, currentUser';
 ```
 
-After saving the file, we're once again passing the second test, but we're back to failing the third test. The new error message for the third test gives us a hint about what's happening:
+If we rerun the tests, we're once again passing the second test, but we're back to failing the third test. The new error message for the third test gives us a hint about what's happening:
 
 ```js
 AssertionError: expected 'Welcome to Flatbook, currentUser' to contain 'Grace Hopper'
@@ -209,24 +186,13 @@ const excitedWelcomeMessage = welcomeMessage.toUpperCase();
 
 All strings in JavaScript have access to the same set of default methods, which are common operations like changing and returning a new string, searching through a string for specific character(s) and returning the match, and so on. For example, we can use [`.toUpperCase()`][toUpperCase] and [`.toLowerCase()`][toLowerCase] on a string to make the entire string uppercase or lowercase. There are lots of other [string methods][string methods] that you'll find useful at various points throughout your JavaScript programming career.
 
-If you save `index.js` after adding the code for `excitedWelcomeMessage` and then flip back to the browser-based test suite, we should see the first seven tests passing. Woohoo!
+Rerun the tests; you should see the first seven tests passing. Woohoo!
 
 #### `shortGreeting`
 
-The mobile team at Flatbook is busy redesigning the site for smaller devices, and they're a bit concerned about how much real estate the `welcomeMessage` takes up on the screen. They want us to create a shorter version that truncates the `currentUser`'s name into just their first initial:
+The mobile team at Flatbook is busy redesigning the site for smaller devices, and they're a bit concerned about how much real estate the `welcomeMessage` takes up on the screen. They want us to create a shorter version that truncates the `currentUser`'s name into just their first initial.
 
-```js
-const currentUser = 'Edsger Dijkstra';
-
-...
-
-const shortGreeting = ... ;
-
-shortGreeting;
-//=> "Welcome, E!"
-```
-
-Returning to the test suite in the browser, the JavaScript engine is telling us that it can't find `shortGreeting`:
+If you take a look at the first error, you'll see that the JavaScript engine is telling us that it can't find `shortGreeting`:
 
 ```js
 shortGreeting
@@ -311,7 +277,7 @@ Let's take a look at the documentation for [`.slice()`][slice]:
 > The **slice()** method extracts a section of a string and returns it as a new
 > string.
 
-The method takes two arguments, the indexes at which the extraction should begin and before which it should end. When we talk about indexes of a string, we're talking about how to access specific characters at various points within the string. Remember, computers start counting at 0, where humans start counting at 1. Because we start at index `0` instead of `1`, the index of each character in a string is always one less than the character's place in the string. The second character is at index `1`, the fifth at index `4`, the twelfth at index `11`, and so on. The index of the last character is always one less than the [length][length] of the string:
+The method takes two arguments: the index at which the extraction should begin and the index *before which* it should end. When we talk about indexes of a string, we're talking about how to access specific characters at various points within the string. Remember, computers start counting at 0, where humans start counting at 1. Because we start at index `0` instead of `1`, the index of each character in a string is always one less than the character's place in the string. The second character is at index `1`, the fifth at index `4`, the twelfth at index `11`, and so on. The index of the last character is always one less than the [length][length] of the string:
 
 ```js
 'Edsger Dijkstra'.length;
@@ -351,7 +317,7 @@ To satisfy our team's current specifications for `shortGreeting`, we need to sta
 currentUser.slice(0, 1);
 ```
 
-Now, when our product team asks us to use the first two characters of `currentUser`, the change is as simple as `currentUser.slice(0, 1)` --> `currentUser.slice(0, 2)`.
+Now, when our product team asks us to use the first two characters of `currentUser`, the change is as simple as `currentUser.slice(0, 1)` → `currentUser.slice(0, 2)`.
 
 Add an exclamation point to the end, and the entire test suite should be passing:
 
@@ -362,16 +328,6 @@ const currentUser = 'Grace Hopper';
 
 const shortGreeting = `Welcome, ${currentUser.slice(0, 1)}!`;
 ```
-
-![All tests passing](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/all_tests_passing.png)
-
-Nice job!
-
-## Conclusion
-
-When all of the tests are passing, the `Run Local Tests` light on the Learn.co lesson page should turn green, and you can close the browser tab that contains the test suite. Flip back to the terminal and press the `Control` and `C` keys at the same time to halt the test server.
-
-We're ready to submit our passing code and move on to the next lesson. Type `learn submit` in your terminal to submit your lab!
 
 Great work!
 
@@ -395,7 +351,4 @@ Great work!
 [character access]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Character_access
 [toUpperCase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 [toLowerCase]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
-[charAt]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
 [slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
-[manual PR instructions]: http://help.learn.co/workflow-tips/github/how-to-manually-submit-a-lab
-
