@@ -1,4 +1,4 @@
-# Strings Lab Introduction
+# Review: Strings Lab
 
 ## Learning Goals
 
@@ -8,9 +8,10 @@
 
 ## Introduction
 
-In this lab introduction, we're going to take a deep dive into strings in JavaScript by walking through the process of running tests in the Learn environment. We're also going to familiarize ourselves with the structure and flow of JavaScript labs.
-
-For this lab, you've just been onboarded to the dev team working on Flatbook, the world's premier Flatiron School-based social network. At the moment, the view that our users see upon logging in is pretty generic. We'd like to improve the user experience by adding some custom greeting capabilities.
+For this lab, you've just been onboarded to the dev team working on Flatbook,
+the world's premier Flatiron School-based social network. At the moment, the
+view that our users see upon logging in is pretty generic. We'd like to improve
+the user experience by adding some custom greeting capabilities.
 
 ## Work Through Failing Tests in a JavaScript Test Suite
 
@@ -27,11 +28,9 @@ The first test is telling us that `currentUser` is not defined. Let's go to
 const currentUser = 'Grace Hopper';
 ```
 
-> **Note**: Generally, when the tests ask you to define something, you want to define it exactly as it's indicated in the test. But in this case, you don't have to write `'Grace Hopper'`, because the important part is the variable name: `currentUser`.  You can use your own name, your pet's name, your favorite programmer's name &mdash; whatever you'd like.
+> **Note**: Generally, when the tests ask you to define something, you want to define it exactly as indicated in the test. But in this case, you don't have to write `'Grace Hopper'`, because the important part is the variable name: `currentUser`.  You can use your own name, your pet's name, your favorite programmer's name &mdash; whatever you'd like.
 
-Rerun the tests and you should see that the first one is  passing.
-
-Congratulations! You've just written your first passing JavaScript test!
+Rerun the tests and you should see that the first one is passing.
 
 #### `welcomeMessage`
 
@@ -117,25 +116,9 @@ If we run the test suite with our updated code, we'll see both the second and th
 
 ## Interpolate Variables and Other JavaScript Expressions Inside Template Literals
 
-String interpolation lets us dynamically insert values in the middle of a string. Before ES2015, we could accomplish this with concatenation:
+String interpolation lets us dynamically insert values in the middle of a string. To do this, we need to use [template literals][template literals], which are simply strings wrapped in backticks rather than single or double quotes. Template literals enable us to interpolate the value of a variable into a string by wrapping the variable in curly braces preceded by a dollar sign: `${yourVariable}`. The `${}`, when inside backticks, tells the JavaScript engine that it needs to *interpret the value* of `yourVariable` and insert that value into the string. If you forget to use the backticks and use single or double quotes instead, the dollar sign, curly braces and variable name will be inserted into the string instead of the variable's value.
 
-```js
-const myString = 'concatenat';
-//=> undefined
-
-const myNumber = 20;
-//=> undefined
-
-const myBoolean = true;
-//=> undefined
-
-"It's " + myBoolean + ' that we can ' + myString + 'e values of any data type into one long ' + typeof myString + '. We could even ' + myString + 'e ' + (22 + myNumber) + " things together if we wanted to. We don't have to convert things like " + typeof myNumber + 's or ' + typeof myBoolean + 's prior to ' + myString + 'ing them. ' +
-
-'Even if we ' + myString + 'e across multiple lines, the return value is still a single, one-line ' + typeof myString + '.';
-//=> "It's true that we can concatenate values of any data type into one long string. We could even concatenate 42 things together if we wanted to. We don't have to convert things like numbers or booleans prior to concatenating them. Even if we concatenate across multiple lines, the return value is still a single, one-line string."
-```
-
-ES2015 introduced [template literals][template literals], which removed the need for concatenation. No more `+` operators needed; instead variables are interpolated in by wrapping them in curly braces preceded by a dollar sign: `${yourVariable}`. One other important thing: Template literals *must* use backticks in order to be interpreted correctly. Using single or double quotes will cause the dollar sign, curly braces and variable to be interpreted as regular string data.
+Unlike string concatenation, template literals will also allow you to use multi-line strings. Wrapping the string in backticks preserves any new lines when the string is returned or output.
 
 ```js
 const myString = 'template literal';
@@ -151,6 +134,8 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 
 // Beware that new lines inside of a template literal will be preserved as new lines in the resulting string!"
 ```
+
+While, for most purposes, the choice of whether to use concatenation or string interpolation is primarily a matter of personal preference, JavaScript programmers tend to use string interpolation for all but the simplest of cases.
 
 Let's rewrite our `welcomeMessage` to use a template literal:
 
@@ -184,7 +169,7 @@ const welcomeMessage = `Welcome to Flatbook, ${currentUser}!`;
 const excitedWelcomeMessage = welcomeMessage.toUpperCase();
 ```
 
-All strings in JavaScript have access to the same set of default methods, which are common operations like changing and returning a new string, searching through a string for specific character(s) and returning the match, and so on. For example, we can use [`.toUpperCase()`][toUpperCase] and [`.toLowerCase()`][toLowerCase] on a string to make the entire string uppercase or lowercase. There are lots of other [string methods][string methods] that you'll find useful at various points throughout your JavaScript programming career.
+All strings in JavaScript have access to the same set of default methods, which are common operations like changing a string and returning the new version, searching through a string for specific character(s) and returning the match, and so on. For example, we can use [`.toUpperCase()`][toUpperCase] and [`.toLowerCase()`][toLowerCase] on a string to make the entire string uppercase or lowercase. There are lots of other [string methods][string methods] that you'll find useful at various points throughout your JavaScript programming career.
 
 Rerun the tests; you should see the first seven tests passing. Woohoo!
 
@@ -270,14 +255,12 @@ For the added flexibility, we're going to use `.slice()`, but you can always exp
 
 #### `.slice()`
 
-Let's take a look at the documentation for [`.slice()`][slice]:
-
-[![String.prototype.slice() documentation on MDN](https://curriculum-content.s3.amazonaws.com/web-development/js/basics/strings-code-along/MDN_string_slice_documentation.png)][slice]
+If you take a look at the documentation for [`.slice()`][slice], you will see the following description:
 
 > The **slice()** method extracts a section of a string and returns it as a new
-> string.
+> string, without modifying the original string.
 
-The method takes two arguments: the index at which the extraction should begin and the index *before which* it should end. When we talk about indexes of a string, we're talking about how to access specific characters at various points within the string. Remember, computers start counting at 0, where humans start counting at 1. Because we start at index `0` instead of `1`, the index of each character in a string is always one less than the character's place in the string. The second character is at index `1`, the fifth at index `4`, the twelfth at index `11`, and so on. The index of the last character is always one less than the [length][length] of the string:
+The method takes two arguments: the index at which the extraction should begin and the index *before which* it should end. When we talk about indexes of a string, we're talking about how to access specific characters at various points within the string. Recall that computers start counting with 0. Because we start at index `0` instead of `1`, the index of each character in a string is always one less than the character's place in the string. The second character is at index `1`, the fifth at index `4`, the twelfth at index `11`, and so on. The index of the last character is always one less than the [length][length] of the string:
 
 ```js
 'Edsger Dijkstra'.length;
@@ -297,7 +280,7 @@ If we omit both arguments, `.slice()` will return a full copy of the original st
 //=> "Edsger Dijkstra"
 ```
 
-If we provide a single argument, `.slice()` will return a copy from that index to the end of the string. For example, to grab Dijkstra's last name we could start the slice on index `7`:
+If we provide a single argument, `.slice()` will return a copy from that index to the end of the string. For example, to grab Dijkstra's last name, we could start the slice on index `7`:
 
 ```js
 'Edsger Dijkstra'.slice(7);
