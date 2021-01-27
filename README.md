@@ -156,8 +156,8 @@ by wrapping the variable in curly braces preceded by a dollar sign:
 `${yourVariable}`. The `${}`, when inside backticks, tells the JavaScript engine
 that it needs to *interpret the value* of `yourVariable` and insert that value
 into the string. If you forget to use the backticks and use single or double
-quotes instead, the dollar sign, curly braces and variable name will be inserted
-into the string instead of the variable's value.
+quotes instead, the dollar sign, curly braces and variable name will all be
+inserted into the string instead of the variable's value.
 
 Unlike string concatenation, template literals will also allow you to use
 multi-line strings. Wrapping the string in backticks preserves any new lines
@@ -177,6 +177,11 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 
 // Beware that new lines inside of a template literal will be preserved as new lines in the resulting string!"
 ```
+
+Note that, in the example above, one of the things we are interpolating into our
+string is an arithmetic expression: `${90 + myNumber}`. We aren't limited to
+interpolating just variables &mdash; we can use *any expression* inside the
+curly braces.
 
 While, for most purposes, the choice of whether to use concatenation or string
 interpolation is primarily a matter of personal preference, JavaScript
