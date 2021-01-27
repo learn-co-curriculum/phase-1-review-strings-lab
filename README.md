@@ -178,7 +178,7 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 // Beware that new lines inside of a template literal will be preserved as new lines in the resulting string!"
 ```
 
-Note that, in the example above, one of the things we are interpolating into our
+Note that, in the example above, one of the things we interpolated into our
 string is an arithmetic expression: `${90 + myNumber}`. We aren't limited to
 interpolating just variables &mdash; we can use *any expression* inside the
 curly braces.
