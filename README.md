@@ -32,7 +32,7 @@ const currentUser = 'Grace Hopper';
 > define it exactly as indicated in the test. But in this case, you don't have
 > to write `'Grace Hopper'`, because the important part is the variable name:
 > `currentUser`.  You can use your own name, your pet's name, your favorite
-> programmer's name &mdash; whatever you'd like.
+> programmer's name — whatever you'd like.
 
 Rerun the tests and you should see that the first one is passing.
 
@@ -180,7 +180,7 @@ Beware that new lines inside of a ${myString} will be preserved as new lines in 
 
 Note that, in the example above, one of the things we interpolated into our
 string is an arithmetic expression: `${90 + myNumber}`. We aren't limited to
-interpolating just variables &mdash; we can use *any expression* inside the
+interpolating just variables — we can use *any expression* inside the
 curly braces.
 
 While, for most purposes, the choice of whether to use concatenation or string
