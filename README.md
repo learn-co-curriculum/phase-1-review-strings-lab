@@ -19,7 +19,7 @@ To start off, let's run the test suite with the `learn` command. Our code is
 currently failing all of the tests, but we expected that because we haven't done
 anything yet. Let's get to work!
 
-#### `currentUser`
+### `currentUser`
 
 The first test is telling us that `currentUser` is not defined. Let's go to
 `index.js` and write the following code:
@@ -36,7 +36,7 @@ const currentUser = 'Grace Hopper';
 
 Rerun the tests and you should see that the first one is passing.
 
-#### `welcomeMessage`
+### `welcomeMessage`
 
 The next failing test is similarly helpful, telling us exactly what we have to
 fix: `welcomeMessage contains "Welcome to Flatbook, "`.
@@ -209,7 +209,7 @@ Four tests down, six to go!
 
 ## Read the MDN Documentation on String Methods and Practice Using a Few
 
-#### `excitedWelcomeMessage`
+### `excitedWelcomeMessage`
 
 Sometimes we get so excited when someone logs into their Flatbook account that
 we just want to shout out loud. We *could* copy over most of the code from
@@ -419,9 +419,9 @@ Great work!
 - [MDN — String — `.length`][length]
 - [MDN — String — Character access][character access]
 - [MDN — String — Methods][string methods]
-  + [MDN — `.toUpperCase()`][toUpperCase]
-  + [MDN — `.toLowerCase()`][toLowerCase]
-  + [MDN — `.slice()`][slice]
+  - [MDN — `.toUpperCase()`][toUpperCase]
+  - [MDN — `.toLowerCase()`][toLowerCase]
+  - [MDN — `.slice()`][slice]
 
 [open JS console]: https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers/77337#77337
 [template literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
