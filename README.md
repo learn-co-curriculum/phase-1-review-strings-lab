@@ -15,9 +15,9 @@ the user experience by adding some custom greeting capabilities.
 
 ## Work Through Failing Tests in a JavaScript Test Suite
 
-To start off, let's run the test suite with the `learn test` command. Our code
-is currently failing all of the tests, but we expected that because we haven't
-done anything yet. Let's get to work!
+To start off, let's install the dependencies then run the test suite with the
+`npm test` command. Our code is currently failing all of the tests, but we
+expected that because we haven't done anything yet. Let's get to work!
 
 ### `currentUser`
 
