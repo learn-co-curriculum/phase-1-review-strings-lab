@@ -15,9 +15,15 @@ the user experience by adding some custom greeting capabilities.
 
 ## Work Through Failing Tests in a JavaScript Test Suite
 
-To start off, let's install the dependencies then run the test suite with the
-`npm test` command. Our code is currently failing all of the tests, but we
-expected that because we haven't done anything yet. Let's get to work!
+If you haven't already, fork and clone this lab into your local environment.
+Remember to **fork** a copy into your GitHub account first, then **clone** from
+that copy. Navigate into its directory in the terminal, then run code . to open
+the files in Visual Studio Code.
+
+Next, let's run `npm install` to install the dependencies then run the test
+suite with the `npm test` command. Our code is currently failing all of the
+tests, but we expected that because we haven't done anything yet. Let's get to
+work!
 
 ### `currentUser`
 
@@ -408,6 +414,13 @@ const currentUser = 'Grace Hopper';
 
 const shortGreeting = `Welcome, ${currentUser.slice(0, 1)}!`;
 ```
+
+After you have all the tests passing, remember to commit and push your changes
+up to GitHub, then submit your work to Canvas using CodeGrade. If you need a
+reminder, go back to the [Completing and Submitting Assignments with
+CodeGrade][completing-codegrade] lesson to review the process.
+
+[completing-codegrade]: https://github.com/learn-co-curriculum/phase-1-completing-assignments-with-codegrade
 
 Great work!
 
