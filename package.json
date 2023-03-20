@@ -4,7 +4,6 @@
   "description": "JavaScript Strings Code-along for Learn.co",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gem install learn-co",
     "test": "mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json"
   },
   "repository": {
