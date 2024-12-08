@@ -24,14 +24,16 @@
   },
   "homepage": "https://github.com/learn-co-curriculum/js-basics-strings-code-along#readme",
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-preset-env": "1.7.0",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-core": "^5.8.38",
+    "babel-preset-env": "^0.0.0",
     "chai": "4.1.2",
-    "jsdom": "9.2.1",
-    "mocha": "5.2.0",
+    "chai-spies-next": "^0.9.3",
+    "jsdom": "^25.0.1",
+    "mocha": "^11.0.1",
     "mocha-jsdom": "~1.1.0",
-    "mocha-multi": "1.0.1",
-    "chai-spies-next": "^0.9.3"
+    "mocha-multi": "^1.1.7"
   },
   "dependencies": {
     "sinon": "^7.3.2"
